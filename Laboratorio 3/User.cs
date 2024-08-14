@@ -13,6 +13,8 @@ namespace Laboratorio_3
         public string Nombre { get; set; }
         public string Correo { get; set; }
         public string Direccion { get; set; }
+        public virtual double Descuento(double sumatoria) { return sumatoria; }
+
 
         public static void AgregarCliente()
         {

@@ -8,7 +8,6 @@ namespace Laboratorio_3
 {
     internal class Cliente : User
     {
-        public virtual void Descuento(double sumatoria) { }
         public Cliente(int Id, string nombre, string correo, string direccion) : base(Id, nombre, correo, direccion)
         {
         }

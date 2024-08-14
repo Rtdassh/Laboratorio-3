@@ -22,9 +22,17 @@ namespace Laboratorio_3
         {
             listadoTemporal.Clear();
             contadorPedidos++;
+            bool evaluacion = true;
+            int IDCliente = 0;
             Console.WriteLine("Menú para registrar pedidos");
-            Console.Write("Ingrese el ID del cliente: ");
-            int IDCliente = Convert.ToInt32(Console.ReadLine() ?? "");
+            while (evaluacion)
+            {
+                Console.Write("Ingrese el ID del cliente: ");
+                 IDCliente = Convert.ToInt32(Console.ReadLine() ?? "");
+                User? consulta = User.listadoUsuarios.Find(n => n.ID == IDCliente);
+                if (consulta != null) { Console.WriteLine("El ID es válido"); break; }
+                else { Console.WriteLine("Ingreso un ID inválido"); }
+            }
             Console.WriteLine("¿Cuántos productos desea agregar?");
             int cantidadProductos = Convert.ToInt32(Console.ReadLine());
 
@@ -41,9 +49,21 @@ namespace Laboratorio_3
             }
             Pedido nuevoPedido = new Pedido(contadorPedidos, DateTime.Now, listadoTemporal, IDCliente);
             listadoPedidos.Add(nuevoPedido);
+            Console.WriteLine("¡Tu pedido ha ingresado con éxito!");
         }
 
+        public static double CalcularTotal(int IDCliente) 
+        {
+            User? consulta = User.listadoUsuarios.Find(n => n.ID == IDCliente)!;
 
+            double total = 0;
+            foreach (var item in ) 
+            {
+                total += item.Precio;
+            }
+            total = total - consulta.Descuento(total);
+            return total;
+        }
         public Pedido(int numeroPedido, DateTime fechaPedido, List<Producto> listadoProductos, int idCliente)
         {
             NumeroPedido = numeroPedido;

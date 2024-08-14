@@ -95,8 +95,10 @@ void LecturaSwitchListas()
         case 3:
             foreach (Pedido pedido in Pedido.listadoPedidos)
             {
+                double total = Pedido.CalcularTotal(pedido.IdCliente);
                 Console.WriteLine("---------------------------------------------------------------------");
                 Console.WriteLine($"Número de pedido: {pedido.NumeroPedido} || Fecha: {pedido.FechaPedido}|| ID del Cliente: {pedido.IdCliente}");
+                Console.WriteLine($"Cantidad total de pago: {total}");
                 Console.WriteLine("---------------------------------------------------------------------");
                 Console.WriteLine();
             }
@@ -105,7 +107,6 @@ void LecturaSwitchListas()
             Console.WriteLine("No se reconoció la opción :(");
             break;
     }
-    Console.ReadKey();
 }
 
 
