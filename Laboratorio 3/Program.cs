@@ -1,33 +1,18 @@
 ﻿//No sé que hacer
+using Laboratorio_3;
 
 do
 {
     try
     {
-        Console.WriteLine("Bienvenido a Toyota");
-        Console.WriteLine("1. Menú para usuarios administrativos");
-        Console.WriteLine("2. Menú para clientes");
-        Console.Write("Ingrese su respuesta: ");
-        int menuType = Convert.ToInt32(Console.ReadLine());
-
-        switch (menuType) 
-        {
-            case 1:              
-                break;
-            case 2:
-                break;
-        }
-        do
-        {
-
-        } while (true);
+        LecturaSwitch();
     } catch (Exception ex) 
     { 
         Console.WriteLine("a" + ex);
     }
     } while (true) ;
 
-int MenuUser() 
+int Menu() 
 {
     Console.WriteLine("Has ingresado al menu de usuarios administrativos");
     Console.WriteLine("1. Agregar clientes");
@@ -42,14 +27,30 @@ int MenuUser()
     return optionSwitch;
 }
 
-int MenuClient()
+void LecturaSwitch()
 {
-    Console.WriteLine("Has ingresado al menu de clientes");
-    Console.WriteLine("1. Registrar vehículos");
-    Console.WriteLine("2. Registrar pedidos para clientes");
-
-    Console.Write("Ingrese su respuesta: ");
-    int optionSwitch = Convert.ToInt32(Console.ReadLine());
-    return optionSwitch;
+    switch (Menu())
+    {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            Console.WriteLine("Ciao amigo!");
+            Environment.Exit(0);
+            break;
+        default:
+            Console.WriteLine("No se reconoció la opción :(");
+            break;
+    }
+    Console.ReadKey();
 }
+
+
 
