@@ -29,7 +29,7 @@ do
 
 int MenuUser() 
 {
-    Console.WriteLine("Has ingresado al menu de usuarios");
+    Console.WriteLine("Has ingresado al menu de usuarios administrativos");
     Console.WriteLine("1. Agregar clientes");
     Console.WriteLine("2. Registrar pedidos para clientes");
     Console.WriteLine("3. Ver todos los clientes registrados");
@@ -47,8 +47,6 @@ int MenuClient()
     Console.WriteLine("Has ingresado al menu de clientes");
     Console.WriteLine("1. Registrar vehículos");
     Console.WriteLine("2. Registrar pedidos para clientes");
-    Console.WriteLine("3. Ver todos los clientes registrados");
-    Console.WriteLine("4. Búsqueda específica");
 
     Console.Write("Ingrese su respuesta: ");
     int optionSwitch = Convert.ToInt32(Console.ReadLine());
