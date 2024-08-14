@@ -8,18 +8,23 @@ namespace Laboratorio_3
 {
     internal class Pedido
     {
-        public int contadorPedidos = 0;
-        public List<Pedido> listadoPedidos = new List<Pedido>();
+        public static int contadorPedidos = 0;
+        public static List<Pedido> listadoPedidos = new List<Pedido>();
+        public static List<Producto> listadoTemporal = new List<Producto>();
+
         public int NumeroPedido { get; set; }
         public DateTime FechaPedido { get; set; }
 
         public List<Producto> ListadoProductos { get; set; }
+        public int IdCliente { get; set; }
 
-        public void AgregarPedido()
-        {           
-            ListadoProductos.Clear();
+        public static void AgregarPedido()
+        {
+            listadoTemporal.Clear();
             contadorPedidos++;
             Console.WriteLine("Menú para registrar pedidos");
+            Console.Write("Ingrese el ID del cliente: ");
+            int IDCliente = Convert.ToInt32(Console.ReadLine() ?? "");
             Console.WriteLine("¿Cuántos productos desea agregar?");
             int cantidadProductos = Convert.ToInt32(Console.ReadLine());
 
@@ -32,17 +37,19 @@ namespace Laboratorio_3
                 double precio = Convert.ToDouble(Console.ReadLine() ?? "");
 
                 Producto productoAgregado = new Producto(nombre, precio);
-                ListadoProductos.Add(productoAgregado);
+                listadoTemporal.Add(productoAgregado);
             }
-            Pedido nuevoPedido = new Pedido(contadorPedidos, DateTime.Now, ListadoProductos);
+            Pedido nuevoPedido = new Pedido(contadorPedidos, DateTime.Now, listadoTemporal, IDCliente);
             listadoPedidos.Add(nuevoPedido);
         }
 
-        public Pedido(int numeroPedido, DateTime fechaPedido, List<Producto> listadoProductos)
+
+        public Pedido(int numeroPedido, DateTime fechaPedido, List<Producto> listadoProductos, int idCliente)
         {
             NumeroPedido = numeroPedido;
             FechaPedido = fechaPedido;
             ListadoProductos = listadoProductos;
+            IdCliente = idCliente;
         }
     }
 }
