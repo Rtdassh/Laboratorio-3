@@ -30,7 +30,7 @@ namespace Laboratorio_3
                 matricula = Console.ReadLine() ?? "";
                 Vehiculo? consulta = listadoVehiculos.Find(n => n.Matricula == matricula);
                 if (consulta == null) { Console.WriteLine("Enhorabuena, la matricula es nueva"); break; }
-                else { Console.WriteLine("Desgraciadamente, la matricula es nueva"); Console.ReadKey(); }
+                else { Console.WriteLine("Desgraciadamente, la matricula ya existe"); Console.ReadKey(); }
             }
             Console.WriteLine();
             Console.Write("Ingrese el modelo: ");
